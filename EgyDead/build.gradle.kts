@@ -14,7 +14,7 @@ cloudstream {
      * 2: Slow
      * 3: Beta-only
      **/
-    status = 3 
+    status = 1 
 
     tvTypes = listOf("Movie", "TvSeries", "Anime")
     // you can swap this icon url out later for an egydead logo if you want
