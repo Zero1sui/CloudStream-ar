@@ -1,11 +1,12 @@
 package recloudstream
 
-import android.content.Context
 import com.lagradost.cloudstream3.*
-import com.lagradost.cloudstream3.plugins.* // Uses wildcard to catch Plugin & CloudstreamPlugin automatically
+import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
+import com.lagradost.cloudstream3.plugins.Plugin
 import com.lagradost.cloudstream3.utils.*
 import org.jsoup.Jsoup
 
+@CloudstreamPlugin
 class EgyDeadProvider : MainAPI() {
     override var mainUrl = "https://tv9.egydead.live"
     override var name = "EgyDead"
@@ -35,12 +36,5 @@ class EgyDeadProvider : MainAPI() {
                 this.posterUrl = poster
             }
         }
-    }
-}
-
-@CloudstreamPlugin
-class EgyDeadPlugin: Plugin() {
-    override fun load(context: Context) {
-        registerMainAPI(EgyDeadProvider())
     }
 }
