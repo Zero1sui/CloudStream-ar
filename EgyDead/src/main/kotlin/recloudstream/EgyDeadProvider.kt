@@ -1,7 +1,6 @@
 package recloudstream
 
 import com.lagradost.cloudstream3.*
-import com.lagradost.cloudstream3.network.CloudflareKiller
 import com.lagradost.cloudstream3.utils.*
 import org.jsoup.Jsoup
 
@@ -17,11 +16,9 @@ class EgyDeadProvider : MainAPI() {
         TvType.Anime
     )
 
-    private val cfInterceptor = CloudflareKiller()
-
     override suspend fun search(query: String): List<SearchResponse> {
-        // Pull page with Cloudflare Killer attached
-        val response = app.get("$mainUrl/?s=$query", interceptor = cfInterceptor).text
+        // Standard app.get call without the interceptor
+        val response = app.get("$mainUrl/?s=$query").text
         val document = Jsoup.parse(response)
         
         // Target standard movie/series grid cards
