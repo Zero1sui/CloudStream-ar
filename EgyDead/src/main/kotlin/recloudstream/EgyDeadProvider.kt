@@ -2,8 +2,7 @@ package recloudstream
 
 import android.content.Context
 import com.lagradost.cloudstream3.*
-import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
-import com.lagradost.cloudstream3.plugins.Plugin
+import com.lagradost.cloudstream3.plugins.* // Uses wildcard to catch Plugin & CloudstreamPlugin automatically
 import com.lagradost.cloudstream3.utils.*
 import org.jsoup.Jsoup
 
@@ -39,7 +38,6 @@ class EgyDeadProvider : MainAPI() {
     }
 }
 
-// THIS IS THE MAIN ENTRY POINT CLOUDSTREAM WAS LOOKING FOR
 @CloudstreamPlugin
 class EgyDeadPlugin: Plugin() {
     override fun load(context: Context) {
