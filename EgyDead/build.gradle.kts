@@ -4,6 +4,9 @@ import com.lagradost.cloudstream3.gradle.CloudstreamExtension
 version = 1
 
 cloudstream {
+    // THIS LINE IS THE HOLY GRAIL FOR REPO DEPLOYMENT
+    className = "EgyDeadPlugin" 
+    
     description = "Watch OUT DAWG!"
     authors = listOf("ZERO")
 
